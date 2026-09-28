@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Celestia — сообщество Mobile Legends</title>
+<meta name="description" content="Celestia — тёплое сообщество для игроков Mobile Legends. Драфты, пати, скины, турниры, NFT-розыгрыши.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Celestia — сообщество Mobile Legends">
+<meta property="og:description" content="Тёплое сообщество для тех, кто играет в Mobile Legends не в одиночку. Турниры 2 раза в неделю, NFT-розыгрыши и ламповое общение.">
+<meta property="og:url" content="https://t.me/+q8NjLx9nC3w0OGEy">
+<meta property="og:image" content="https://placehold.co/1200x630/0a0a18/e8c37a?text=CELESTIA">
+<meta property="og:site_name" content="Celestia">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Celestia — сообщество Mobile Legends">
+<meta name="twitter:description" content="Тёплое сообщество для тех, кто играет в Mobile Legends не в одиночку.">
+<meta name="twitter:image" content="https://placehold.co/1200x630/0a0a18/e8c37a?text=CELESTIA">
+<meta name="theme-color" content="#070a1a">
+<meta name="author" content="V1taL|K">
+<meta name="copyright" content="© 2026 V1taL|K. Все права защищены.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,400&family=Inter:wght@300;400;500&family=Anton&family=Yellowtail&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070a1a;
+  --panel:#0e1530;
+  --line:#1f2b52;
+  --gold:#e8c37a;
+  --gold-light:#f0d59a;
+  --blue:#5b8dd6;
+  --blue-deep:#2a4a8a;
+  --blue-light:#8fb8f0;
+  --text:#ece9f6;
+  --muted:#9aa6c8;
+  --accent-pink:#ff3fa8;
+}
+html{
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+  padding-top:env(safe-area-inset-top,0px);
+}
+*,*::before,*::after{box-sizing:inherit;margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  font-weight:300;
+  overflow-x:hidden;
+  min-height:100svh;
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (hover:hover) and (pointer:fine){
+  body.cursor-on{cursor:none}
+}
+::selection{background:var(--gold);color:var(--bg)}
+
+.stars{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  opacity:.45;
+  background-size:600px 600px;
+  background-image:
+    radial-gradient(1.5px 1.5px at 20% 30%, #cfe0ff 100%, transparent),
+    radial-gradient(1.5px 1.5px at 70% 60%, #fff 100%, transparent),
+    radial-gradient(1px 1px at 40% 80%, #cfe0ff 100%, transparent),
+    radial-gradient(1px 1px at 85% 15%, #fff 100%, transparent),
+    radial-gradient(1.5px 1.5px at 55% 45%, #cfe0ff 100%, transparent),
+    radial-gradient(1px 1px at 10% 70%, #fff 100%, transparent),
+    radial-gradient(1px 1px at 33% 12%, #fff 100%, transparent),
+    radial-gradient(1.5px 1.5px at 92% 82%, #cfe0ff 100%, transparent);
+}
+
+.glow{
+  position:fixed;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(ellipse 50% 40% at 20% 20%, rgba(91,141,214,.16), transparent 65%),
+    radial-gradient(ellipse 45% 35% at 80% 40%, rgba(42,74,138,.18), transparent 65%),
+    radial-gradient(ellipse 55% 45% at 50% 90%, rgba(232,195,122,.08), transparent 65%);
+}
+
+.sparks{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden;contain:strict}
+.spark{
+  position:absolute;border-radius:50%;
+  background:rgba(143,184,240,.75);
+  will-change:transform;
+  animation:rise linear infinite;
+}
+@keyframes rise{
+  0%{transform:translate3d(0,20vh,0);opacity:0}
+  10%{opacity:.7}
+  90%{opacity:.7}
+  100%{transform:translate3d(40px,-120vh,0);opacity:0}
+}
+
+main{position:relative;z-index:5}
+section{max-width:680px;margin:0 auto;padding:100px 28px;position:relative}
+
+.hero{
+  min-height:100svh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:28px;
+}
+.titlewrap{
+  position:relative;display:inline-block;
+  opacity:0;filter:blur(14px);
+  animation:sweep 1.6s ease forwards .2s;
+}
+@keyframes sweep{to{opacity:1;filter:blur(0)}}
+
+.hero h1{
+  font-family:'Anton',sans-serif;
+  font-size:clamp(52px,15vw,118px);
+  line-height:.95;
+  letter-spacing:.01em;
+  text-transform:uppercase;
+  transform:skewX(-6deg);
+  color:transparent;
+  background:linear-gradient(180deg,#fff 8%,#ffb3dd 45%,var(--accent-pink) 100%);
+  -webkit-background-clip:text;background-clip:text;
+  filter:drop-shadow(0 6px 18px rgba(255,47,174,.35));
+}
+
+.chatscript{
+  display:block;
+  margin-top:-.15em;
+  font-family:'Yellowtail',cursive;
+  font-size:clamp(28px,8vw,54px);
+  color:transparent;
+  background:linear-gradient(180deg,var(--gold-light),var(--gold));
+  -webkit-background-clip:text;background-clip:text;
+  transform:skewX(-3deg) translateX(1.2em);
+}
+
+.rule{
+  width:72px;height:1px;background:var(--line);
+  margin:30px auto;
+  transform:scaleX(0);
+  animation:grow .82s ease-out forwards 1.2s;
+}
+@keyframes grow{to{transform:scaleX(1)}}
+
+.hero p{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:19px;
+  letter-spacing:.03em;
+  color:var(--blue-light);
+  opacity:0;
+  animation:fadein .95s ease forwards 1.5s;
+}
+@keyframes fadein{to{opacity:1}}
+
+.cta{
+  display:inline-flex;align-items:center;gap:10px;
+  margin-top:44px;padding:15px 34px;
+  font-family:'Inter',sans-serif;
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--bg);
+  text-decoration:none;
+  background:linear-gradient(135deg,#f5d99a 0%,var(--gold) 45%,#c9a45a 100%);
+  border:1px solid var(--gold-light);
+  border-radius:3px;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.4) inset,
+    0 -2px 8px rgba(0,0,0,.25) inset,
+    0 6px 18px rgba(232,195,122,.25);
+  opacity:0;
+  animation:fadein .95s ease forwards 1.9s;
+  transition:transform .26s ease, box-shadow .26s ease;
+}
+.cta:hover,.cta:focus-visible{
+  transform:translateY(-2px);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.5) inset,
+    0 -2px 8px rgba(0,0,0,.25) inset,
+    0 12px 28px rgba(232,195,122,.45);
+  outline:none;
+}
+.cta:focus-visible{outline:2px solid var(--blue-light);outline-offset:3px}
+
+@media (max-width:700px){
+  .cta{margin-top:52px;padding:16px 30px;font-size:13px}
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity .68s ease-out, transform .68s cubic-bezier(.16,1,.3,1);
+}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal.d1{transition-delay:.08s}
+.reveal.d2{transition-delay:.16s}
+.reveal.d3{transition-delay:.24s}
+.reveal.d4{transition-delay:.32s}
+
+h2{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:400;
+  font-size:32px;
+  letter-spacing:.02em;
+  margin-bottom:20px;
+  color:var(--gold);
+}
+.lede{color:var(--muted);font-size:16px;line-height:1.85;max-width:54ch}
+
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-top:40px;
+}
+@media (min-width:560px){
+  .stats{grid-template-columns:1fr 1fr 1fr}
+}
+.stat{
+  border:1px solid var(--line);
+  padding:28px 20px;
+  text-align:center;
+  position:relative;
+  background:linear-gradient(180deg,rgba(232,195,122,.06),transparent);
+  transition:transform .28s ease-out, border-color .28s ease-out;
+}
+.stat:hover{
+  transform:translateY(-3px);
+  border-color:var(--gold);
+}
+.stat .num{
+  display:block;
+  margin-bottom:10px;
+  font-family:'Anton',sans-serif;
+  font-size:clamp(38px,9vw,52px);
+  line-height:1;
+  letter-spacing:.01em;
+  color:transparent;
+  background:linear-gradient(180deg,#f5d99a,var(--gold) 60%,#c9a45a);
+  -webkit-background-clip:text;background-clip:text;
+  font-variant-numeric:tabular-nums;
+}
+.stat .num .dot{
+  display:inline-block;
+  width:8px;height:8px;
+  margin-right:8px;
+  border-radius:50%;
+  vertical-align:middle;
+  background:#5ee07a;
+  box-shadow:0 0 8px rgba(94,224,122,.8);
+  animation:blip 2s ease-in-out infinite;
+  -webkit-text-fill-color:initial;
+  color:#5ee07a;
+}
+.stat .label{
+  font-family:'Cormorant Garamond',serif;
+  font-size:15px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.stat.online{border-color:rgba(143,184,240,.25)}
+.stat.online:hover{border-color:var(--blue-light)}
+.stat.online .num{
+  background:linear-gradient(180deg,#cfe0ff,var(--blue-light) 60%,var(--blue));
+  -webkit-background-clip:text;background-clip:text;
+}
+@keyframes blip{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.5;transform:scale(.8)}
+}
+
+.features{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+  margin-top:40px;
+}
+@media (min-width:560px){
+  .features{grid-template-columns:1fr 1fr}
+}
+.feature{
+  padding:26px 22px;
+  border:1px solid var(--line);
+  position:relative;
+  background:linear-gradient(180deg,rgba(91,141,214,.06),transparent);
+  transition:transform .28s ease-out, border-color .28s ease-out, background .28s ease-out;
+}
+.feature:hover{
+  transform:translateY(-3px);
+  border-color:var(--gold);
+  background:linear-gradient(180deg,rgba(232,195,122,.08),transparent);
+}
+.feature .icon{
+  width:38px;height:38px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px;
+  color:var(--gold);
+  transition:transform .38s ease-out;
+}
+.feature:hover .icon{transform:rotate(-8deg) scale(1.08)}
+.feature h3{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:500;
+  font-size:20px;
+  letter-spacing:.03em;
+  margin-bottom:8px;
+  color:var(--text);
+}
+.feature p{color:var(--muted);font-size:14px;line-height:1.7}
+.feature .tag{
+  display:inline-block;
+  width:100%;
+  margin-top:12px;
+  padding-top:10px;
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--gold);
+  border-top:1px solid var(--line);
+}
+
+.tiers{display:grid;gap:18px;margin-top:40px}
+.tier{
+  display:flex;gap:18px;align-items:center;
+  padding:24px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(91,141,214,.05),transparent);
+  transition:transform .28s ease-out, border-color .28s ease-out;
+}
+.tier:hover{transform:translateX(4px);border-color:var(--blue)}
+.tier.star:hover{border-color:var(--gold)}
+.tier.diamond:hover{border-color:var(--blue-light)}
+.tier svg{flex-shrink:0;transition:transform .34s ease-out}
+.tier:hover svg{transform:rotate(8deg) scale(1.06)}
+.tier h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:21px;
+  letter-spacing:.04em;
+  margin-bottom:6px;
+}
+.tier p{color:var(--muted);font-size:14px;line-height:1.6}
+.tier.star h3{color:var(--gold)}
+.tier.diamond h3{color:var(--blue-light)}
+
+footer{
+  position:relative;z-index:5;
+  padding:60px 28px 100px;
+  margin-top:40px;
+  text-align:center;
+  font-size:13px;
+  color:var(--muted);
+  border-top:1px solid var(--line);
+}
+footer .title{
+  font-family:'Cormorant Garamond',serif;
+  letter-spacing:.15em;
+  color:var(--gold);
+  margin-bottom:8px;
+}
+footer .cta{margin-top:28px;opacity:1;animation:none}
+
+.foot-meta{
+  margin-top:36px;
+  padding-top:24px;
+  border-top:1px solid var(--line);
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  align-items:center;
+  font-size:12px;
+  line-height:1.7;
+  color:var(--muted);
+}
+.foot-meta .row{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:6px 14px;
+}
+.foot-meta a{
+  color:var(--blue-light);
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+  transition:border-color .22s ease, color .22s ease;
+}
+.foot-meta a:hover{color:var(--gold);border-color:var(--gold)}
+.foot-meta .sep{
+  display:inline-block;
+  width:3px;height:3px;
+  border-radius:50%;
+  background:var(--line);
+  vertical-align:middle;
+}
+.foot-meta .author{
+  color:var(--text);
+  font-weight:400;
+}
+.foot-meta .license{
+  font-size:11px;
+  letter-spacing:.04em;
+  color:var(--muted);
+  opacity:.85;
+}
+
+#guide{
+  position:fixed;top:0;left:0;
+  width:64px;height:64px;
+  z-index:40;
+  pointer-events:none;
+  opacity:.9;
+  will-change:transform;
+  filter:drop-shadow(0 0 14px rgba(91,141,214,.6));
+  transition:opacity .3s ease;
+}
+#guide-trail{
+  position:fixed;top:0;left:0;
+  width:6px;height:6px;
+  z-index:39;
+  border-radius:50%;
+  pointer-events:none;
+  background:rgba(143,184,240,.9);
+  will-change:transform;
+  transition:opacity .3s ease;
+}
+body.cursor-off #guide,
+body.cursor-off #guide-trail{opacity:0;visibility:hidden}
+
+.cursor-toggle{
+  position:fixed;
+  right:16px;
+  bottom:calc(16px + env(safe-area-inset-bottom,0px));
+  z-index:9999;
+  width:48px;height:48px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:rgba(14,21,48,.85);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  color:var(--gold);
+  cursor:pointer;
+  box-shadow:0 4px 16px rgba(0,0,0,.4);
+  transition:transform .24s ease, border-color .24s ease, color .24s ease;
+}
+.cursor-toggle:hover{transform:scale(1.08);border-color:var(--gold);color:var(--gold-light)}
+.cursor-toggle:focus-visible{outline:2px solid var(--blue-light);outline-offset:3px}
+.cursor-toggle svg{width:22px;height:22px}
+.cursor-toggle .icon-on{display:block}
+.cursor-toggle .icon-off{display:none}
+body.cursor-off .cursor-toggle .icon-on{display:none !important}
+body.cursor-off .cursor-toggle .icon-off{display:block}
+body.cursor-off .cursor-toggle{color:var(--muted);border-color:var(--line)}
+
+@media (max-width:700px){
+  .cursor-toggle{
+    width:44px;height:44px;
+    right:12px;
+    bottom:calc(12px + env(safe-area-inset-bottom,0px));
+  }
+  .cursor-toggle svg{width:20px;height:20px}
+  .foot-meta{font-size:11px}
+}
+
+.hero-alt{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  min-height:100svh;
+}
+
+.badge{
+  display:inline-block;
+  padding:4px 10px;
+  border-radius:99px;
+  font-size:11px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  .titlewrap,.hero p,.cta{opacity:1;filter:none}
+  .reveal{opacity:1;transform:none}
+  .sparks{display:none}
+  #guide,#guide-trail{display:none}
+}
+</style>
+</head>
+<body class="cursor-on">
+<div class="stars" aria-hidden="true"></div>
+<div class="glow" aria-hidden="true"></div>
+<div class="sparks" id="sparks" aria-hidden="true"></div>
+
+<svg id="guide" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="cloak" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5b8dd6"/>
+      <stop offset="100%" stop-color="#1a2a52"/>
+    </linearGradient>
+  </defs>
+  <path d="M50 8 C30 20 22 55 28 85 L50 92 L72 85 C78 55 70 20 50 8 Z" fill="url(#cloak)"/>
+  <circle cx="50" cy="28" r="12" fill="#dfe9ff"/>
+  <path d="M40 24 C40 16 60 16 60 24 C60 30 54 32 50 32 C46 32 40 30 40 24 Z" fill="#0e1530"/>
+  <circle cx="50" cy="60" r="5" fill="#e8c37a" opacity=".9"/>
+</svg>
+<div id="guide-trail" aria-hidden="true"></div>
+
+<button class="cursor-toggle" id="cursorToggle" type="button" aria-label="Скрыть проводника" aria-pressed="true">
+  <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+    <circle cx="12" cy="12" r="3"/>
+  </svg>
+  <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+    <line x1="1" y1="1" x2="23" y2="23"/>
+  </svg>
+</button>
+
+<main>
+  <header class="hero">
+    <div class="titlewrap" aria-label="Celestia chat">
+      <h1>CELESTIA</h1>
+      <span class="chatscript" aria-hidden="true">chat</span>
+    </div>
+    <div class="rule" aria-hidden="true"></div>
+    <p>твой проводник среди звёзд уже рядом</p>
+    <a class="cta" href="https://t.me/+q8NjLx9nC3w0OGEy" target="_blank" rel="noopener">Вступить в Celestia</a>
+  </header>
+
+  <section aria-labelledby="about-title">
+    <h2 id="about-title" class="reveal">О чате</h2>
+    <p class="lede reveal d1">Celestia — тёплое сообщество для тех, кто играет в Mobile Legends не в одиночку. Здесь обсуждают драфты, зовут в пати, делятся скинами и устраивают турниры внутри чата. Ламповая атмосфера, активная администрация и регулярные ивенты.</p>
+  </section>
+
+  <section aria-labelledby="stats-title">
+    <h2 id="stats-title" class="reveal">Celestia в цифрах</h2>
+    <p class="lede reveal d1">Сообщество растёт каждый день — присоединяйся к движу.</p>
+
+    <div class="stats">
+      <div class="stat reveal d1" data-target="900">
+        <span class="num"><span data-num>0</span></span>
+        <span class="label">участников</span>
+      </div>
+      <div class="stat online reveal d2" data-target="100" data-jitter="8">
+        <span class="num"><span class="dot" aria-hidden="true"></span><span data-num>0</span></span>
+        <span class="label">в сети сейчас</span>
+      </div>
+      <div class="stat reveal d3" data-target="52">
+        <span class="num"><span data-num>0</span></span>
+        <span class="label">турниров в год</span>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="features-title">
+    <h2 id="features-title" class="reveal">Что тебя ждёт</h2>
+    <p class="lede reveal d1">Мы не просто чат — мы живём играми и событиями внутри сообщества.</p>
+
+    <div class="features">
+      <article class="feature reveal d1">
+        <div class="icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 4h12l-1 8a5 5 0 0 1-5 5 5 5 0 0 1-5-5z"/>
+            <path d="M9 17v3h6v-3"/>
+            <path d="M12 4V1"/>
+            <path d="M4 6l-2 4"/>
+            <path d="M20 6l2 4"/>
+          </svg>
+        </div>
+        <h3>Турниры 2 раза в неделю</h3>
+        <p>Каждую неделю проводим кастомные турниры внутри чата. Драфты, роли, MVP — всё по-взрослому.</p>
+        <span class="tag">кастомки · драфты · MVP</span>
+      </article>
+
+      <article class="feature reveal d2">
+        <div class="icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="5"/>
+            <path d="M8.5 12.5 7 22l5-3 5 3-1.5-9.5"/>
+          </svg>
+        </div>
+        <h3>Призы и награды</h3>
+        <p>Победители и активные участники получают призы: скины, алмазы и особые роли в сообществе.</p>
+        <span class="tag">скины · алмазы · роли</span>
+      </article>
+
+      <article class="feature reveal d3">
+        <div class="icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2 4 6v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+        </div>
+        <h3>NFT-розыгрыши</h3>
+        <p>Проводим розыгрыши NFT среди участников — от коллекционных дропов до токенов. Эксклюзивно внутри Celestia.</p>
+        <span class="tag">NFT · дропы · эксклюзив</span>
+      </article>
+
+      <article class="feature reveal d4">
+        <div class="icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v4"/>
+            <path d="M12 18v4"/>
+            <path d="M4.9 4.9l2.8 2.8"/>
+            <path d="M16.3 16.3l2.8 2.8"/>
+            <path d="M2 12h4"/>
+            <path d="M18 12h4"/>
+            <path d="M4.9 19.1l2.8-2.8"/>
+            <path d="M16.3 7.7l2.8-2.8"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </div>
+        <h3>И другие ивенты</h3>
+        <p>Кино-вечера, мемные конкурсы, межчатовые батлы и спонтанные сборы — жизнь кипит каждый день.</p>
+        <span class="tag">ивенты · батлы · движ</span>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="prizes-title">
+    <h2 id="prizes-title" class="reveal">Призы за мероприятия</h2>
+    <p class="lede reveal d1">На конкурсах и розыгрышах внутри чата разыгрываются эти награды.</p>
+    <div class="tiers">
+      <article class="tier star reveal d1">
+        <svg width="46" height="46" viewBox="0 0 46 46" aria-hidden="true">
+          <path d="M23 4 L38 17 L23 42 L8 17 Z M8 17 L38 17 M15 17 L23 4 L31 17" fill="none" stroke="#e8c37a" stroke-width="1.6"/>
+          <circle cx="23" cy="22" r="3" fill="none" stroke="#e8c37a" stroke-width="1.2"/>
+        </svg>
+        <div>
+          <h3>NFT-подарки в Telegram</h3>
+          <p>Выдаются за актив в чате и за выигрыши в некоторых мероприятиях. Коллекционные подарки прямо в Telegram.</p>
+        </div>
+      </article>
+      <article class="tier diamond reveal d2">
+        <svg width="46" height="46" viewBox="0 0 46 46" aria-hidden="true">
+          <path d="M23 4 L38 17 L23 42 L8 17 Z M8 17 L38 17 M15 17 L23 4 L31 17" fill="none" stroke="#8fb8f0" stroke-width="1.6"/>
+        </svg>
+        <div>
+          <h3>Алмазный пропуск</h3>
+          <p>Главный приз турниров внутри чата: доступ к закрытым ивентам и особая роль в сообществе.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="title">CELESTIA</div>
+  <div>сообщество, где звёзды всегда на твоей стороне</div>
+  <a class="cta" href="https://t.me/+q8NjLx9nC3w0OGEy" target="_blank" rel="noopener">Вступить</a>
+
+  <div class="foot-meta">
+    <div class="row">
+      <span>© 2026 Celestia</span>
+      <span class="sep" aria-hidden="true"></span>
+      <span>Автор: <span class="author">V1taL|K</span></span>
+    </div>
+    <div class="row license">
+      <span>Все права защищены. Копирование, распространение и использование материалов сайта без письменного согласия автора запрещены.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var touch = window.matchMedia('(hover:none),(pointer:coarse)').matches;
+  var sparkBox = document.getElementById('sparks');
+  var guide = document.getElementById('guide');
+  var trail = document.getElementById('guide-trail');
+  var toggle = document.getElementById('cursorToggle');
+
+  var KEY = 'celestia-cursor';
+  var cursorOn = true;
+  try {
+    var saved = localStorage.getItem(KEY);
+    if (saved === 'off') cursorOn = false;
+  } catch(e){}
+
+  function syncCursor(){
+    document.body.classList.toggle('cursor-on', cursorOn);
+    document.body.classList.toggle('cursor-off', !cursorOn);
+    if (toggle){
+      toggle.setAttribute('aria-pressed', cursorOn ? 'true' : 'false');
+      toggle.setAttribute('aria-label', cursorOn ? 'Скрыть проводника' : 'Показать проводника');
+    }
+  }
+  syncCursor();
+
+  if (toggle){
+    toggle.addEventListener('click', function(){
+      cursorOn = !cursorOn;
+      syncCursor();
+      try { localStorage.setItem(KEY, cursorOn ? 'on' : 'off'); } catch(e){}
+    });
+  }
+
+  var counters = document.querySelectorAll('.stat[data-target]');
+  var countersStarted = false;
+
+  function countUp(el, target, duration){
+    var numEl = el.querySelector('[data-num]');
+    if (!numEl) return;
+    var start = performance.now();
+    function step(now){
+      var t = Math.min((now - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - t, 3);
+      var val = Math.round(target * eased);
+      numEl.textContent = val;
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function bootCounters(){
+    if (countersStarted) return;
+    countersStarted = true;
+    counters.forEach(function(el, i){
+      var target = parseInt(el.dataset.target, 10);
+      setTimeout(function(){ countUp(el, target, 1400 + i * 200); }, i * 150);
+    });
+    var onlineEl = document.querySelector('.stat.online');
+    if (onlineEl && !reduce){
+      var base = parseInt(onlineEl.dataset.target, 10);
+      var jitter = parseInt(onlineEl.dataset.jitter || '6', 10);
+      var onlineNum = onlineEl.querySelector('[data-num]');
+      setInterval(function(){
+        var delta = Math.round((Math.random() - 0.5) * jitter * 2);
+        var val = Math.max(0, base + delta);
+        if (onlineNum) onlineNum.textContent = val;
+      }, 4000);
+    }
+  }
+
+  var statsAnchor = document.getElementById('stats-title');
+  if ('IntersectionObserver' in window && statsAnchor){
+    var io1 = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          bootCounters();
+          io1.disconnect();
+        }
+      });
+    }, {threshold:.3});
+    io1.observe(statsAnchor);
+  } else {
+    bootCounters();
+  }
+
+  if (!reduce && sparkBox){
+    var n = window.innerWidth < 700 ? 14 : 20;
+    for (var i = 0; i < n; i++){
+      var s = document.createElement('span');
+      s.className = 'spark';
+      var size = Math.random() * 3 + 2;
+      s.style.width = size + 'px';
+      s.style.height = size + 'px';
+      s.style.left = Math.random() * 100 + 'vw';
+      s.style.top = (Math.random() * 100) + 'vh';
+      s.style.animationDuration = (Math.random() * 20 + 25) + 's';
+      s.style.animationDelay = (-Math.random() * 40) + 's';
+      s.style.opacity = (Math.random() * .4 + .3).toFixed(2);
+      sparkBox.appendChild(s);
+    }
+  }
+
+  if (!reduce && guide && trail){
+    var x = window.innerWidth / 2;
+    var y = window.innerHeight * 0.35;
+    var tx = x, ty = y;
+    var goalX = x, goalY = y;
+
+    function findSpot(){
+      var pad = 100;
+      var W = window.innerWidth;
+      var H = window.innerHeight;
+      for (var k = 0; k < 12; k++){
+        var px = pad + Math.random() * (W - pad * 2);
+        var py = pad + Math.random() * (H - pad * 2);
+        var hit = document.elementFromPoint(px, py);
+        if (!hit) continue;
+        if (!hit.closest('.feature, .tier, .cta, .titlewrap, header, footer, section, .stat, .cursor-toggle, .foot-meta')){
+          return {x: px, y: py};
+        }
+      }
+      return {x: pad + Math.random() * (W - pad * 2), y: pad + Math.random() * (H - pad * 2)};
+    }
+
+    function planNext(){
+      setTimeout(function(){
+        var spot = findSpot();
+        goalX = spot.x;
+        goalY = spot.y;
+        planNext();
+      }, 1800 + Math.random() * 2200);
+    }
+
+    if (touch){
+      var first = findSpot();
+      goalX = first.x;
+      goalY = first.y;
+      planNext();
+    } else {
+      goalX = x;
+      goalY = y;
+      window.addEventListener('pointermove', function(e){
+        goalX = e.clientX;
+        goalY = e.clientY;
+      }, {passive:true});
+    }
+
+    function tick(){
+      var k = touch ? 0.035 : 0.09;
+      x += (goalX - x) * k;
+      y += (goalY - y) * k;
+      tx += (goalX - tx) * (k * 0.5);
+      ty += (goalY - ty) * (k * 0.5);
+      var bob = Math.sin(performance.now() / 500) * 3;
+      guide.style.transform = 'translate3d(' + (x - 32) + 'px,' + (y - 32 + bob) + 'px,0)';
+      trail.style.transform = 'translate3d(' + (tx - 3) + 'px,' + (ty - 3) + 'px,0)';
+      requestAnimationFrame(tick);
+    }
+    tick();
+  }
+
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduce){
+    var io2 = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io2.unobserve(e.target);
+        }
+      });
+    }, {threshold:.15, rootMargin:'0px 0px -60px 0px'});
+    reveals.forEach(function(el){ io2.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+  </html>
